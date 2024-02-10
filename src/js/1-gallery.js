@@ -70,42 +70,16 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
-let modal = '';
 
 function createMarcupGallery(images) {
   return images.map(({preview, original, description}) => 
         `<li class="gallery-item">
             <a class="gallery-link" href="${original}">
-                <img class="gallery-image" src="${preview}" data-source="${original}" alt="${description}" />
+                <img class="gallery-image" src="${preview}" alt="${description}" />
             </a>
         </li>`).join('')
 };
 
 gallery.innerHTML = createMarcupGallery(images);
 
-
-
-// gallery.addEventListener('click', (event) => {
-//   if (event.target === event.currentTarget) {
-//     return;
-//   }
-//   const linkImage = event.target.dataset.source;
-//   const altImage = event.target.alt;
-//   event.preventDefault();
-  
-//   modal = basicLightbox.create(`
-//     <div class="modal">
-//       <img src="${linkImage}" alt="${altImage}" width="1112" height="640">
-//     </div>
-//   `);
-
-//   modal.show();
-
-  
-// })
-
-// document.addEventListener('keyup', (event) => {
-//   if (event.key === 'Escape') {
-//     modal.close();
-//   }
-// })
+const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250  });
