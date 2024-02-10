@@ -1,2 +1,2 @@
-import"./assets/styles-8b950396.js";console.log("form");
+import"./assets/styles-0148aac5.js";const s="feedback-form-state",o=document.querySelector(".feedback-form");function l(e){const a=e.email.value.trim(),t=e.message.value.trim();return{email:a,message:t}}o.addEventListener("input",e=>{e.preventDefault();const a=l(e.currentTarget),t=JSON.stringify(a);localStorage.setItem(s,t)});o.addEventListener("submit",e=>{e.preventDefault();const a=localStorage.getItem(s),t=JSON.parse(a);t.email&&t.message?(console.log(t),localStorage.removeItem(s),o.reset()):alert("Аll form fields must be filled out!")});const r=localStorage.getItem(s);if(r){const e=JSON.parse(r);o.email.value=e.email,o.message.value=e.message}
 //# sourceMappingURL=commonHelpers2.js.map
